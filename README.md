@@ -24,7 +24,7 @@ angular.module('myApp', ['ez.case'])
 
 ```
 
-Add ez-alert markup to your html and include the dist files
+Add ez-case markup to your html and include the dist files
 
 ```html 
   <body ng-app="myApp">
