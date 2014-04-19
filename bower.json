@@ -1,0 +1,17 @@
+{
+  "name": "ez-case",
+  "version": "0.0.0",
+  "main": [
+    "dist/ez-case.min.js"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.16"
+  }
+}
