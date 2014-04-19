@@ -1,5 +1,5 @@
-ez-case
-==========
+ez-case <img src="https://travis-ci.org/jdewit/ez-case.svg" data-bindattr-255="255" title="Build Status Images">
+=======
 
 A flexible Angular case conversion filter.
 
