@@ -16,8 +16,8 @@ angular.module('ez.case', []).filter('ezCase', [function () {
         return methods.lcfirst(str).replace(/(_|\s)/g, '-').replace(/[A-Z]/g, '-$&').toLowerCase();
       },
       title: function(str) {
-        return methods.ucfirst(str.replace(/(-(.)|_(.))/g, function(match, group1) {
-          return group1.replace(/(-|_)/, '').toUpperCase();
+        return methods.ucfirst(str.replace(/(-(.)|_(.)|\s(.))/g, function(match, group1) {
+          return group1.replace(/(-|_|\s)/, '').toUpperCase();
         }).replace(/([A-Z])/g, ' $&')).trim();
       },
       word: function(str) {
@@ -28,10 +28,32 @@ angular.module('ez.case', []).filter('ezCase', [function () {
       },
       lcfirst: function(str) {
         return str.charAt(0).toLowerCase() + str.substr(1);
+      },
+      lower: function(str) {
+        return str.toLowerCase();
+      },
+      upper: function(str) {
+        return str.toUpperCase();
       }
     };
 
     return methods[method](str);
   };
+}])
 
+.directive('ezCase', ['ezCaseFilter', function (ezCaseFilter) {
+  return {
+    restrict: 'EA',
+    require: 'ngModel',
+    scope: {
+      type: '@ezCase'
+    },
+    link: function(scope, element, attrs, ctrl) {
+      ctrl.$parsers.push(function(val) {
+        if (val) {
+          return ezCaseFilter(scope.type, val);
+        }
+      });
+    }
+  };
 }]);

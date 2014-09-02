@@ -7,6 +7,22 @@ describe('ez-case', function() {
     ezCaseFilter = _ezCaseFilter_;
   }));
 
+  it('Should convert to lcfirst', function() {
+    assert.equal(ezCaseFilter('lcfirst', 'SomeVarDude'), 'someVarDude', 'from pascal');
+  });
+
+  it('Should convert to ucfirst', function() {
+    assert.equal(ezCaseFilter('ucfirst', 'someVarDude'), 'SomeVarDude', 'from camel');
+  });
+
+  it('Should convert to lower case', function() {
+    assert.equal(ezCaseFilter('lower', 'SomeVarDude'), 'somevardude', 'from pascal');
+  });
+
+  it('Should convert to upper', function() {
+    assert.equal(ezCaseFilter('upper', 'someVarDude'), 'SOMEVARDUDE', 'from camel');
+  });
+
   it('Should convert to camel case', function() {
     assert.equal(ezCaseFilter('camel', 'some-var-dude'), 'someVarDude', 'from dashed');
     assert.equal(ezCaseFilter('camel', 'some_var_dude'), 'someVarDude', 'from underscore');
@@ -24,6 +40,7 @@ describe('ez-case', function() {
     assert.equal(ezCaseFilter('title', 'some_var_dude'), 'Some Var Dude', 'from underscore');
     assert.equal(ezCaseFilter('title', 'someVarDude'), 'Some Var Dude', 'from camel');
     assert.equal(ezCaseFilter('title', 'SomeVarDude'), 'Some Var Dude', 'from pascal');
+    assert.equal(ezCaseFilter('title', 'some var dude'), 'Some Var Dude', 'from spaces');
   });
 
   it('Should convert to underscore', function() {

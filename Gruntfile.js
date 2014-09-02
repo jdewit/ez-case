@@ -42,17 +42,14 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/ez-case.min.js': ['src/**/*.js']
+          'dist/ez-case.min.js': ['src/*.js']
         }
       }
     },
     watch: {
       dev: {
         files: ['Gruntfile.js', 'src/*', 'test/**/*Spec.js'],
-        tasks: ['default', 'karma:unit:run'],
-        options: {
-          livereload: 9090
-        }
+        tasks: ['jshint', 'uglify', 'karma:unit:run']
       }
     }
   });

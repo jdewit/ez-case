@@ -6,6 +6,7 @@ module.exports = function(config) {
 
     files: [
       // libraries
+      'bower_components/jquery/dist/jquery.min.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'src/ez-case.js',
@@ -14,8 +15,8 @@ module.exports = function(config) {
       'test/*Spec.js'
     ],
 
-    port: 1844,
+    port: 1845,
 
-    browsers: ['Firefox']
+    browsers: ['Chrome']
   });
 };

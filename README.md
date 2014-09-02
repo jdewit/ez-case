@@ -1,15 +1,15 @@
 ez-case <img src="https://travis-ci.org/jdewit/ez-case.svg" data-bindattr-255="255" title="Build Status Images">
 =======
 
-A flexible Angular case conversion filter.
-
-Convert from any case to your desired case.
+Easy case conversion.
 
 Pull requests welcomed.
 
 ##Usage
 
 Add ez.case to your apps list of modules.
+
+### Filter
 Use like a standard angular filter
 
 ```js 
@@ -37,3 +37,10 @@ Add ez-case markup to your html and include the dist files
 ```
 
 
+###Directive
+
+Apply case conversion to input fields using a directive
+
+```html
+  <input ng-model="myVal" ez-case="title"/>
+```
