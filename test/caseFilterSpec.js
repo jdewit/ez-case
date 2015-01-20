@@ -36,6 +36,7 @@ describe('ez-case', function() {
   });
 
   it('Should convert to title case', function() {
+    assert.equal(ezCaseFilter('title', 'somevardude'), 'Somevardude', 'from single word');
     assert.equal(ezCaseFilter('title', 'some-var-dude'), 'Some Var Dude', 'from dashed');
     assert.equal(ezCaseFilter('title', 'some_var_dude'), 'Some Var Dude', 'from underscore');
     assert.equal(ezCaseFilter('title', 'someVarDude'), 'Some Var Dude', 'from camel');

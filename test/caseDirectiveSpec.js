@@ -21,6 +21,8 @@ describe('caseFilterSpec', function() {
     _scope.$apply();
 
     assert.equal(_scope.value, 'Test Value');
+
+    assert.equal(el.val(), 'Test Value');
   });
 
 });

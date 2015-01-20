@@ -1,5 +1,9 @@
 angular.module('ez.case', []).filter('ezCase', [function () {
-  return function(method, str) {
+  return function(str, method) {
+    if (!str) {
+      return str;
+    }
+
     var methods = {
       camel: function(str) {
         return str.toLowerCase().replace(/(-(.)|_(.)|\s(.))/g, function(match, group1) {
@@ -37,6 +41,10 @@ angular.module('ez.case', []).filter('ezCase', [function () {
       }
     };
 
+    if (!methods.hasOwnProperty(method)) {
+      throw new Error(method + ' is not a valid conversion method');
+    }
+
     return methods[method](str);
   };
 }])
@@ -51,7 +59,12 @@ angular.module('ez.case', []).filter('ezCase', [function () {
     link: function(scope, element, attrs, ctrl) {
       ctrl.$parsers.push(function(val) {
         if (val) {
-          return ezCaseFilter(scope.type, val);
+
+          val = ezCaseFilter(val, scope.type);
+
+          element.val(val);
+
+          return val;
         }
       });
     }
