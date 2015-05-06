@@ -38,6 +38,11 @@ angular.module('ez.case', []).filter('ezCase', [function () {
       },
       upper: function(str) {
         return str.toUpperCase();
+      },
+      properWithAcronyms: function(str) {
+        return methods.ucfirst(str.replace(/(-(.)|_(.)|\s(.))/g, function(match, group1) {
+          return group1.replace(/(-|_|\s)/, '\u001D').toUpperCase();
+        }).replace(/\u001D([A-Z])/g, ' $1')).trim();
       }
     };
 
